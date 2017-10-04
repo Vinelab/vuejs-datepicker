@@ -5,7 +5,7 @@
 
     <div class="example">
       <h3>Default datepicker</h3>
-      <datepicker placeholder="Select Date" :defaultYear="-13" initial-view="year"></datepicker>
+      <datepicker placeholder="Select Date" :disabled="disabled" :yearsDifference="-13" v-model="dateOfBirth" initial-view="year" :format="customFormatter(dateOfBirth, 'DD/MM/YYYY')"></datepicker>
       <code>
           &lt;datepicker placeholder="Select Date"&gt;&lt;/datepicker&gt;
       </code>
@@ -122,6 +122,7 @@
 <script>
 import Datepicker from '@/components/Datepicker'
 import DateLanguages from '@/utils/DateLanguages'
+import moment from 'moment'
 
 const state = {
   date1: new Date()
@@ -135,16 +136,25 @@ export default {
   data () {
     return {
       format: 'd MMMM yyyy',
-      disabled: {},
+      // disabled: {},
       eventMsg: null,
       state: state,
       language: 'en',
       languages: DateLanguages.translations,
       vModelExample: null,
-      defaultDate: new Date(1985, 0, 1)
+      defaultDate: new Date(1985, 0, 1),
+      dateOfBirth: null,
+      disabled: {
+        from: new Date(2010, 0, 1)
+      }
     }
   },
   methods: {
+    customFormatter: function (date, format) {
+      if (date) {
+        return moment(date).format(format)
+      }
+    },
     setDisabledDays (elem) {
       if (elem.target.value === 'undefined') {
         return

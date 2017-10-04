@@ -1,5 +1,5 @@
 {
-  "name": "vuejs-datepicker",
+  "name": "vuejs-datepicker-vinelab",
   "version": "0.9.16",
   "description": "A simple Vue.js datepicker component. Supports disabling of dates, inline mode, translations",
   "keywords": [
@@ -9,10 +9,10 @@
     "calendar"
   ],
   "main": "dist/build.js",
-  "author": "Charlie Kassel <ck@charliekassel.com>",
+  "author": "Ali Issa <ali@vinelab.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/charliekassel/vuejs-datepicker"
+    "url": "https://github.com/Vinelab/vuejs-datepicker"
   },
   "bugs": {
     "url": "https://github.com/charliekassel/vuejs-datepicker/issues"

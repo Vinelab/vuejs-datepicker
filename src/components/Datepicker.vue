@@ -19,6 +19,7 @@
         :clear-button="clearButton"
         :disabled="disabledPicker"
         :required="required"
+        :defaultYear="defaultYear"
         readonly>
       <!-- Clear Button -->
       <span class="vdp-datepicker__clear-button" :class="{'input-group-addon' : bootstrapStyling}" v-if="clearButton && selectedDate" @click="clearDate()">
@@ -140,7 +141,11 @@ export default {
     },
     disabledPicker: Boolean,
     required: Boolean,
-    dayViewOnly: Boolean
+    dayViewOnly: Boolean,
+    defaultYear: {
+      type: Number,
+      default: 0
+    }
   },
   data () {
     return {
@@ -166,6 +171,11 @@ export default {
        * Positioning
        */
       calendarHeight: 0
+    }
+  },
+  created: function () {
+    if (this.defaultYear !== 0) {
+      this.changeYear(this.defaultYear)
     }
   },
   watch: {

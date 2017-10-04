@@ -5,7 +5,7 @@
 
     <div class="example">
       <h3>Default datepicker</h3>
-      <datepicker placeholder="Select Date"></datepicker>
+      <datepicker placeholder="Select Date" :defaultYear="-13" initial-view="year"></datepicker>
       <code>
           &lt;datepicker placeholder="Select Date"&gt;&lt;/datepicker&gt;
       </code>
@@ -140,7 +140,8 @@ export default {
       state: state,
       language: 'en',
       languages: DateLanguages.translations,
-      vModelExample: null
+      vModelExample: null,
+      defaultDate: new Date(1985, 0, 1)
     }
   },
   methods: {
